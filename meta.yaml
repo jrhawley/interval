@@ -1,0 +1,35 @@
+{% set name = "interval" %}
+{% set version = "1.0.0" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  git_url: https://github.com/jrhawley/interval.git
+
+build:
+  number: 0
+  script: "$PYTHON -m pip install . --no-deps --ignore-installed -vv "
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+
+test:
+  imports:
+    - interval
+
+about:
+  home: https://github.com/jrhawley/interval/
+  license: GPLv3
+  license_family: GPL3
+  license_file: LICENSE
+  summary: Python interval and interval set implementation.
+
+extra:
+  recipe-maintainers:
+    - jrhawley
